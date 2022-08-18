@@ -1,4 +1,4 @@
-#Casey & Jessica's Wedding Website
+# Casey & Jessica's Wedding Website
 
 We are using the wonderful-wedding template and they have the following licenses which carry over here where applicable.
 
