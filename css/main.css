@@ -1,5 +1,5 @@
 body {
-  font-family: "Dosis", sans-serif; }
+  font-family: nunito, sans-serif; }
 
 /* Home Page Style */
 .ww-home-page {
@@ -170,7 +170,7 @@ body {
 
 /* Common Style */
 .ww-title {
-  font-family: "Great Vibes", cursive; }
+  font-family: gravesend-sans, sans-serif; }
 
 .ww-section {
   padding: 100px 0; }
