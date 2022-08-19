@@ -26,7 +26,77 @@
     <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
     <link href="css/ekko-lightbox.css?ver=1.1.0" rel="stylesheet">
     <link href="css/main.css?ver=1.1.0" rel="stylesheet">
-    <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
+
+	<script type="module">
+	/**
+	 * Creates a script tag that loads the MapKitJS Library and then
+	 * calls `mapkit.init` to initialize the library with your JWT.
+	 */
+	const setupMapKitJs = async() => {
+		// Create and Load the MapKit JS Script Tag
+		await new Promise(resolve => {
+			const element = document.createElement("script");
+			element.addEventListener("load", () => { resolve(); });
+			element.src = "https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js";
+			document.head.appendChild(element);
+		});
+		// TODO: For production use, the JWT should not be hard-coded into JS.
+		const jwt = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlM1QTdBWEw1RzgifQ.eyJpc3MiOiJYTjYzV0Q5NU44IiwiaWF0IjoxNjYwOTQ3NjE0LCJleHAiOjE2OTIzMTY4MDAsIm9yaWdpbiI6Imh0dHBzOi8vY2FzZXlhbmRqZXNzaWNhLmNvbSJ9.6L9nbkd2uTd0zj40wFbRIMxybS3JWrFO7bzqBn9C7oUYycFT-UFQ2a8Ncjz5h6kqO5l9vcc9MILBGPN9reUgew";
+		mapkit.init({
+			authorizationCallback: done => { done(jwt); }
+		});
+	};
+
+	const main = async() => {
+		await setupMapKitJs();
+
+		// Create the Map and Geocoder
+		const map = new mapkit.Map("map-container");
+		const geocoder = new mapkit.Geocoder({ language: "en-US" });
+
+		// Create the "Event" annotation, setting properties in the constructor.
+		const event = new mapkit.Coordinate(34.094775, -118.272117);
+		const eventAnnotation = new mapkit.MarkerAnnotation(event, {
+			color: "#f4a56d",
+			title: "The Paramour Estate",
+			glyphText: "\u{1F492}" // Wedding Emoji
+		});
+
+		// Add and show both annotations on the map
+		map.showItems([eventAnnotation]);
+
+		// This will contain the user-set single-tap annotation.
+		let clickAnnotation = null;
+
+		// Add or move an annotation when a user single-taps an empty space
+		map.addEventListener("single-tap", event => {
+			if (clickAnnotation) {
+				map.removeAnnotation(clickAnnotation);
+			}
+
+			// Get the clicked coordinate and add an annotation there
+			const point = event.pointOnPage;
+			const coordinate = map.convertPointOnPageToCoordinate(point);
+
+			clickAnnotation = new mapkit.MarkerAnnotation(coordinate, {
+				title: "Loading...",
+				color: "#c969e0"
+			});
+
+			map.addAnnotation(clickAnnotation);
+
+			// Look up the address with the Geocoder's Reverse Lookup Function
+			geocoder.reverseLookup(coordinate, (error, data) => {
+				const first = (!error && data.results) ? data.results[0] : null;
+				clickAnnotation.title = (first && first.name) || "";
+			});
+		});
+
+	};
+
+	main();
+	</script>    
+    
     <style>
         #map {
             height: 600px;
@@ -114,41 +184,7 @@
         </div>
       </div>
       <div class="col-md-5 col-sm-12">
-        <div id="map" data-aos="fade-down-left" data-aos-duration="1000"></div>
-        
-        <script>
-        
-        var MarkerAnnotation = mapkit.MarkerAnnotation,
-            clickAnnotation;
-        var poi = new mapkit.Coordinate(34.094775, -118.272117);
-        
-        mapkit.init({
-            authorizationCallback: function(done) {
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", "/services/jwt");
-                xhr.addEventListener("load", function() {
-                    done(this.responseText);
-                });
-                xhr.send();
-            }
-        });
-        var map = new mapkit.Map("map");
-        
-        // Setting properties on creation:
-        var poiAnnotation = new MarkerAnnotation(poi, { color: "#f4a56d", title: "The Paramour Estate", glyphText: "💒" });
-        
-        // Setting properties after creation:
-//         var workAnnotation = new MarkerAnnotation(work);
-//         workAnnotation.color = "#969696"; 
-//         workAnnotation.title = "Work";
-//         workAnnotation.subtitle = "Apple Park";
-//         workAnnotation.selected = "true";
-//         workAnnotation.glyphText = "";
-        
-        // Add and show both annotations on the map
-        map.showItems([poiAnnotation]);
-        
-        </script>
+        <div id="map-container" data-aos="fade-down-left" data-aos-duration="1000"></div>
       </div>
     </div>
 <!--     Saturday Event Information below -->
