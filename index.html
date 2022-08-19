@@ -26,6 +26,12 @@
     <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
     <link href="css/ekko-lightbox.css?ver=1.1.0" rel="stylesheet">
     <link href="css/main.css?ver=1.1.0" rel="stylesheet">
+    <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
+    <style>
+        #map {
+            height: 600px;
+        }
+    </style>
     <noscript>
       <style type="text/css">
         [data-aos] {
@@ -34,36 +40,7 @@
         }
       </style>
     </noscript>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-	<script type="text/javascript">
-		$('#wedding-form').on('submit', function (e) {
-			//optional validation code here
-
-			e.preventDefault();
-
-			$.ajax({
-				url: "https://script.google.com/macros/s/AKfycbzFvBb6p9Bu9k_0GeXFvZzh-f3DHCtImIPHZozOKT30CqnVnl19h3IYTxDZN6DtP0-ubA/exec",
-				method: "POST",
-				dataType: "json",
-				data: $("#wedding-form").serialize(),
-				success: function (response) {
-					console.log("response!");
-					console.log($("#wedding-form").serialize());
-
-					if (response.result == "success") {
-						$('#wedding-form')[0].reset();
-						alert('Thank you for contacting us.');
-						return true;
-					} else {
-						alert("The form was not submitted successfully. Please let Casey or Jessica know and try again later.")
-					}
-				},
-				error: function () {
-					alert("The form failed. Please let Casey or Jessica know and try again later.")
-				}
-			})
-		});
-	</script>    
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   </head>
   <body id="top">
     <header></header>
@@ -129,12 +106,49 @@
           <ul>
             <li><i class="text-muted fas fa-map-marker-alt"></i><span class="pl-2 text-muted">The Paramour Estate, Los Angeles, California</span></li>
             <li class="pt-2"><i class="text-muted far fa-calendar-alt"></i><span class="pl-2 text-muted">June 6, 2023</span></li>
-          </ul>
+          </ul>    
+		  <div class="my-3"><img class="img-fluid" src="images/wedding-party.jpg" alt="Wedding Party" data-aos="fade-down-right" data-aos-duration="1000"/></div>
+<!--           https://snapshot.apple-mapkit.com/api/v1/snapshot?center=34.09478760578792%2C-118.27126312255858&t=standard&scale=1&spn=0.06837642386624054%2C0.07724761962890625&size=500x500&lang=en-US&poi=1&annotations=%5B%7B%22point%22%3A%2234.09478759765625%2C-118.2712631225586%22%2C%22markerStyle%22%3A%22large%22%2C%22color%22%3A%22ffa57d%22%7D%5D&expires=1703808000&teamId=XN63WD95N8&keyId=S5A7AXL5G8&signature=laEV54rMrHWfISMPqvGcMEMbGv7uZ5C5J5yYve1fGEZuAQ3pCUj3zVtuKJ2DQbEwVSOQELXvbzfTRSVx5OITfg -->
+          
           <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit nulla enim arcu dictum lobortis, ac congue non hendrerit accumsan. Ut penatibus litora platea mi mus tempus eros proin, maecenas hac eget hendrerit inceptos per tempor sodales, id varius nulla commodo augue lectus pulvinar. Etiam suscipit leo sollicitudin vivamus tempor himenaeos vitae mattis dictum posuere, tincidunt aenean litora aptent facilisis eu est gravida.</p>
         </div>
       </div>
       <div class="col-md-5 col-sm-12">
-        <div class="my-3"><img class="img-fluid" src="images/wedding-party.jpg" alt="Wedding Party" data-aos="fade-down-right" data-aos-duration="1000"/></div>
+        <div id="map" data-aos="fade-down-left" data-aos-duration="1000"></div>
+        
+        <script>
+        
+        var MarkerAnnotation = mapkit.MarkerAnnotation,
+            clickAnnotation;
+        var poi = new mapkit.Coordinate(34.094775, -118.272117);
+        
+        mapkit.init({
+            authorizationCallback: function(done) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "/services/jwt");
+                xhr.addEventListener("load", function() {
+                    done(this.responseText);
+                });
+                xhr.send();
+            }
+        });
+        var map = new mapkit.Map("map");
+        
+        // Setting properties on creation:
+        var poiAnnotation = new MarkerAnnotation(poi, { color: "#f4a56d", title: "The Paramour Estate", glyphText: "💒" });
+        
+        // Setting properties after creation:
+//         var workAnnotation = new MarkerAnnotation(work);
+//         workAnnotation.color = "#969696"; 
+//         workAnnotation.title = "Work";
+//         workAnnotation.subtitle = "Apple Park";
+//         workAnnotation.selected = "true";
+//         workAnnotation.glyphText = "";
+        
+        // Add and show both annotations on the map
+        map.showItems([poiAnnotation]);
+        
+        </script>
       </div>
     </div>
 <!--     Saturday Event Information below -->
@@ -296,6 +310,35 @@
     <div class="row ww-rsvp-form">
       <div class="col-md-10">
         <div class="card-body">
+        	<script type="text/javascript">
+			$('#wedding-form').on('submit', function (e) {
+				//optional validation code here
+
+				e.preventDefault();
+
+				$.ajax({
+					url: "https://script.google.com/macros/s/AKfycbzFvBb6p9Bu9k_0GeXFvZzh-f3DHCtImIPHZozOKT30CqnVnl19h3IYTxDZN6DtP0-ubA/exec",
+					method: "POST",
+					dataType: "json",
+					data: $("#wedding-form").serialize(),
+					success: function (response) {
+						console.log("response!");
+						console.log($("#wedding-form").serialize());
+
+						if (response.result == "success") {
+							$('#wedding-form')[0].reset();
+							alert('Thank you for contacting us.');
+							return true;
+						} else {
+							alert("The form was not submitted successfully. Please let Casey or Jessica know and try again later.")
+						}
+					},
+					error: function () {
+						alert("The form failed. Please let Casey or Jessica know and try again later.")
+					}
+				})
+			});
+			</script>
 		<form id="wedding-form">
 			<div class="row">
 				<div class="col md-6 pb-3">
