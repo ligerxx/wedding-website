@@ -29,7 +29,9 @@
     <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
     <style>
         #map {
-            height: 600px;
+            max-width: 580px;
+            min-height: 300px;
+            height: 100%;
         }
     </style>
     <noscript>
@@ -125,14 +127,8 @@
         mapkit.init({
             authorizationCallback: function(done) {
 	            done("eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlM1QTdBWEw1RzgifQ.eyJpc3MiOiJYTjYzV0Q5NU44IiwiaWF0IjoxNjYwOTQ3NjE0LCJleHAiOjE2OTIzMTY4MDAsIm9yaWdpbiI6Imh0dHBzOi8vY2FzZXlhbmRqZXNzaWNhLmNvbSJ9.6L9nbkd2uTd0zj40wFbRIMxybS3JWrFO7bzqBn9C7oUYycFT-UFQ2a8Ncjz5h6kqO5l9vcc9MILBGPN9reUgew");
-//                 var xhr = new XMLHttpRequest();
-//                 xhr.open("GET", "/services/jwt");
-//                 xhr.addEventListener("load", function() {
-//                     done(this.responseText);
-//                 });
-//                 xhr.send();
             },
-            language: "en"
+            language: "en-US"
         });
         var map = new mapkit.Map("map");
         
@@ -175,7 +171,7 @@
 </div>
 <div class="ww-section" id="people">
   <div class="container ww-couple-friends">
-    <h2 class="h1 text-center pt-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000">Groomsmen & Bridesmaids</h2>
+    <h2 class="h1 text-center pt-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000">Groomsmen & Bridespeople</h2>
     <div class="carousel slide" id="ww-carouselIndicator" data-ride="carousel" data-aos="zoom-in-up" data-aos-duration="1000">
       <ol class="carousel-indicators">
         <li class="active" data-target="#ww-carouselIndicator" data-slide-to="0"></li>
