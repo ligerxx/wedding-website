@@ -179,3 +179,7 @@ body {
 
 .btn-outline-primary:hover {
   color: #fff; }
+  
+.img-round {
+	border-radius: 6%;
+ }

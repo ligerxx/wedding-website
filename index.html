@@ -77,7 +77,7 @@
     <div class="row">
       <div class="col-md-7 col-sm-12">
         <div class="my-3">
-          <div class="h4">Wedding Party</div>
+          <div class="h4">Wedding Ceremony & Reception</div>
           <ul>
             <li><i class="text-muted fas fa-map-marker-alt"></i><span class="pl-2 text-muted">The Paramour Estate, Los Angeles, California</span></li>
             <li class="pt-2"><i class="text-muted far fa-calendar-alt"></i><span class="pl-2 text-muted">June 6, 2023</span></li>
@@ -148,15 +148,15 @@
     <h2 class="h1 text-center pb-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000">Groom & Bride</h2>
     <div class="row text-center">
       <div class="col-md-6">
-        <div class="mt-3"><img class="img-fluid" src="images/groom.jpg" alt="Groom" data-aos="flip-left" data-aos-duration="1000"/>
-<!--           <p class="pt-3 text-left text-muted">Hi I am Raymond,Lorem ipsum dolor sit amet consectetur adipiscing, elit nulla enim arcu dictum lobortis, ac congue non hendrerit accumsan. Ut penatibus litora platea mi mus tempus eros proin, maecenas hac eget hendrerit inceptos per tempor sodales, id varius nulla commodo augue lectus pulvinar. Etiam suscipit leo sollicitudin vivamus tempor himenaeos vitae mattis dictum posuere, tincidunt aenean litora aptent facilisis eu est gravida.</p> -->
+        <div class="mt-3"><img class="img-fluid img-round" src="images/groom.jpg" alt="Groom" data-aos="flip-left" data-aos-duration="1000"/>
+<!--           <p class="pt-3 text-left text-muted">Hi I am Casey,Lorem ipsum dolor sit amet consectetur adipiscing, elit nulla enim arcu dictum lobortis, ac congue non hendrerit accumsan. Ut penatibus litora platea mi mus tempus eros proin, maecenas hac eget hendrerit inceptos per tempor sodales, id varius nulla commodo augue lectus pulvinar. Etiam suscipit leo sollicitudin vivamus tempor himenaeos vitae mattis dictum posuere, tincidunt aenean litora aptent facilisis eu est gravida.</p> -->
           <h3 class="h2 ww-title">Casey</h3>
           <div class="ww-social-links"><a class="btn btn-link" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a><a class="btn btn-link" href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></div>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="mt-3"><img class="img-fluid" src="images/bride.jpg" alt="Bride" data-aos="flip-right" data-aos-duration="1000"/>
-<!--           <p class="pt-3 text-left text-muted">Hi I am Susan,Lorem ipsum dolor sit amet consectetur adipiscing, elit nulla enim arcu dictum lobortis, ac congue non hendrerit accumsan. Ut penatibus litora platea mi mus tempus eros proin, maecenas hac eget hendrerit inceptos per tempor sodales, id varius nulla commodo augue lectus pulvinar. Etiam suscipit leo sollicitudin vivamus tempor himenaeos vitae mattis dictum posuere, tincidunt aenean litora aptent facilisis eu est gravida.</p> -->
+        <div class="mt-3"><img class="img-fluid img-round" src="images/bride.jpg" alt="Bride" data-aos="flip-right" data-aos-duration="1000"/>
+<!--           <p class="pt-3 text-left text-muted">Hi I am Jessica,Lorem ipsum dolor sit amet consectetur adipiscing, elit nulla enim arcu dictum lobortis, ac congue non hendrerit accumsan. Ut penatibus litora platea mi mus tempus eros proin, maecenas hac eget hendrerit inceptos per tempor sodales, id varius nulla commodo augue lectus pulvinar. Etiam suscipit leo sollicitudin vivamus tempor himenaeos vitae mattis dictum posuere, tincidunt aenean litora aptent facilisis eu est gravida.</p> -->
           <h3 class="h2 ww-title">Jessica</h3>
           <div class="ww-social-links"><a class="btn btn-link" href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></div>
         </div>
@@ -166,7 +166,7 @@
 </div>
 <div class="ww-section" id="people">
   <div class="container ww-couple-friends">
-    <h2 class="h1 text-center pt-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000">Groomsmen & Bridespeople</h2>
+    <h2 class="h1 text-center pt-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000">Wedding Party</h2>
     <div class="carousel slide" id="ww-carouselIndicator" data-ride="carousel" data-aos="zoom-in-up" data-aos-duration="1000">
       <ol class="carousel-indicators">
         <li class="active" data-target="#ww-carouselIndicator" data-slide-to="0"></li>
@@ -394,8 +394,13 @@
         
         var MarkerAnnotation = mapkit.MarkerAnnotation,
             clickAnnotation;
+
         // Wedding Events
         var paramourEstate = new mapkit.Coordinate(34.094775, -118.272117);
+        var paramourEstateRegion = new mapkit.CoordinateRegion(
+			new mapkit.Coordinate(34.094775, -118.272117),
+        	new mapkit.CoordinateSpan(0.167647972, 0.354985255)
+        );
         
         // AirPort
         var airport = new mapkit.Coordinate(33.944007, -118.403811);
@@ -413,6 +418,7 @@
         });
         var hotelMap = new mapkit.Map("hotel-map");
         var map = new mapkit.Map("map");
+        map.region = paramourEstateRegion;
 
         
         // Setting properties on creation:
