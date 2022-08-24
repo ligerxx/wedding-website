@@ -80,12 +80,12 @@
           <div class="h4">Wedding Ceremony & Reception</div>
           <ul>
             <li><i class="text-muted fas fa-map-marker-alt"></i><span class="pl-2 text-muted">The Paramour Estate, Los Angeles, California</span></li>
-            <li class="pt-2"><i class="text-muted far fa-calendar-alt"></i><span class="pl-2 text-muted">June 6, 2023</span></li>
+            <li class="pt-2"><i class="text-muted far fa-calendar-alt"></i><span class="pl-2 text-muted">June 6, 2023 @ 4 PM</span></li>
           </ul>    
 		  <div class="my-3"><img class="img-fluid" src="images/wedding-party.jpg" alt="Wedding Party" data-aos="fade-down-right" data-aos-duration="1000"/></div>
 <!--           https://snapshot.apple-mapkit.com/api/v1/snapshot?center=34.09478760578792%2C-118.27126312255858&t=standard&scale=1&spn=0.06837642386624054%2C0.07724761962890625&size=500x500&lang=en-US&poi=1&annotations=%5B%7B%22point%22%3A%2234.09478759765625%2C-118.2712631225586%22%2C%22markerStyle%22%3A%22large%22%2C%22color%22%3A%22ffa57d%22%7D%5D&expires=1703808000&teamId=XN63WD95N8&keyId=S5A7AXL5G8&signature=laEV54rMrHWfISMPqvGcMEMbGv7uZ5C5J5yYve1fGEZuAQ3pCUj3zVtuKJ2DQbEwVSOQELXvbzfTRSVx5OITfg -->
           
-			<p>Here's some things to expect at our wedding party...great drinks, a certain kind of attire that I don't yet at 5:45pm on Friday because Jessica is walking the dog, that we kindly ask no children, GREAT music, lots of memories. Parking will be very limited so we will have some limited shuttles from hotel. We encourage ride-sharing apps like Uber and Lyft. If you come riding on horseback...please don't. We ask instead for you to look yourself in the mirror and reconsider your life choices...</p>
+			<p>Here's some things to expect at our wedding party...great drinks, cocktail attire, that we kindly ask no children, GREAT music, lots of memories. Parking will be very limited so we will have some limited shuttles from hotel. We encourage ride-sharing apps like Uber and Lyft. If you come riding on horseback...please don't. We ask instead for you to look yourself in the mirror and reconsider your life choices...</p>
         </div>
       </div>
       <div class="col-md-5 col-sm-12">
@@ -117,7 +117,7 @@
 </div>
 <div class="ww-section bg-light" id="accommodations">
   <div class="container">
-    <h2 class="h1 text-center pb-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000">Travel & Accommodations</h2>
+    <h2 class="h1 text-center pb-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000">Travel & Lodge</h2>
     <div class="row">
       <div class="col-md-7 col-sm-12">
         <div class="my-3">
@@ -135,6 +135,7 @@
           </ul>          
           <p>Make sure to mention "Feldman-Park Wedding" when booking your room in order to get the special room rate for our guests! These special rates are only valid until XX/XX - so please book early!</p>
           <p>Here's some information about what to expect when flying into LAX. Just remember to breathe and give yourself...so much extra time. Traffic ain't fun.</p>
+          <p>Something about burbank and something about travel</p>
         </div>
       </div>
       <div class="col-md-5 col-sm-12">
@@ -403,7 +404,8 @@
         );
         
         // AirPort
-        var airport = new mapkit.Coordinate(33.944007, -118.403811);
+        var lax = new mapkit.Coordinate(33.944007, -118.403811);
+        var burbank = new mapkit.Coordinate(34.196452, -118.354254);
         
 		// Hotels
 		var hotelA = new mapkit.Coordinate(34.095108, -118.372671);  // Best Western Plus Sunset Plaza
@@ -426,11 +428,12 @@
         var paramourAnnotation = new MarkerAnnotation(paramourEstate, { color: "#f4a56d", title: "The Paramour Estate", glyphText: "💒" });
         
         // Hotels + Event
-        var airportAnnotation = new MarkerAnnotation(airport, { color: "#00C4F9", title: "LAX", glyphText: "✈️" });
+        var laxAnnotation = new MarkerAnnotation(lax, { color: "#00C4F9", title: "LAX", glyphText: "✈️" });
+        var burbankAnnotation = new MarkerAnnotation(burbank, { color: "#00C4F9", title: "BUR", glyphText: "✈️" });
 		var paramourAnnotationCopy = new MarkerAnnotation(paramourEstate, { color: "#f4a56d", title: "The Paramour Estate", glyphText: "💒" });
-        var hotelAnnotationA = new MarkerAnnotation(hotelA, { color: "#00C4F9", title: "Best Western Plus Sunset Plaza"});
-		var hotelAnnotationB = new MarkerAnnotation(hotelB, { color: "#00C4F9", title: "Andaz West Hollywood"});
-		var hotelAnnotationC = new MarkerAnnotation(hotelC, { color: "#00C4F9", title: "The Edition" });		
+        var hotelAnnotationA = new MarkerAnnotation(hotelA, { color: "#AA68FF", title: "Best Western Plus Sunset Plaza"});
+		var hotelAnnotationB = new MarkerAnnotation(hotelB, { color: "#AA68FF", title: "Andaz West Hollywood"});
+		var hotelAnnotationC = new MarkerAnnotation(hotelC, { color: "#AA68FF", title: "The Edition" });		
         
         // Setting properties after creation:
 //         var workAnnotation = new MarkerAnnotation(work);
