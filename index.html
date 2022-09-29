@@ -15,11 +15,32 @@
     <link href="css/ekko-lightbox.css?ver=1.1.0" rel="stylesheet">
     <link href="css/main.css?ver=1.1.0" rel="stylesheet">
     <script type="text/javascript">
+    	const ical = document.getElementById("ical-link") ? document.getElementById("ical-link").href : null
     	const linkElement = document.getElementById("ar-link");
 		linkElement.addEventListener("message", function (event) {			
 			if (event.data == "_apple_ar_quicklook_button_tapped") {
-// 			 	window.location.assign = "https://caseyandjessica.com/resources/Casey_Jessica_Wedding.ics/";
-				setTimeout(function(){ window.location.href = "https://www.apple.com"; }, 1500);
+			
+//             const t = document.querySelector('meta[property="analytics-track"]'),
+//                 e = document.getElementById("ical-link") ? document.getElementById("ical-link").href : null,
+//                 i = t.getAttribute("content").toLowerCase();
+//             document.getElementById("arql-link") && document.querySelectorAll(".ar-link").forEach((function(t) {
+//                 t.addEventListener("message", (function(t) {
+//                     if ("_apple_ar_quicklook_button_tapped" == t.data) {
+//                         try {
+//                             r.default && r.default.track({
+//                                 title: "quicklook add to calendar",
+//                                 prop3: "quicklook add to calendar",
+//                                 eVar1: `${i} - quicklook add to calendar`
+//                             }, {
+//                                 useBeacon: !0
+//                             })
+//                         } catch (t) {}
+//                         e && (window.location.href = e)
+//                     }
+//                 }), !1)
+//             }))
+//         }
+			 	window.location.href = ical;
     		}
 		}, false);
     </script>
@@ -54,7 +75,8 @@
   <div class="ww-wedding-announcement d-flex align-items-center justify-content-start">
   
     <div class="container ww-announcement-container">
-    <a rel="ar" href="images/invite.usdz#callToAction=Add%20to%20Calendar&amp;checkoutTitle=Casey%20and%20Jessica%27s%20Wedding&amp;checkoutSubtitle=June%202nd%202023.&amp;price=" id="ar-link">
+    <a id="ical-link" href="https://caseyandjessica.com/resources/Casey_Jessica_Wedding.ics/"></a>
+    <a rel="ar" href="images/invite.usdz#callToAction=Add%20to%20Calendar&amp;checkoutTitle=Casey%20and%20Jessica%27s%20Wedding&amp;checkoutSubtitle=June%202nd%202023&amp;price=" id="ar-link">
 	  <img class="ww-title img-fluid mt-1" src="images/logo.png" alt="Casey & Jessica" data-aos="zoom-in-down" data-aos-delay="300" data-aos-duration="1000"/>    
       <img class="img-fluid mt-1" src="images/laurel-1.png" alt="June 2nd, 2023" data-aos="zoom-in-down" data-aos-delay="300" data-aos-duration="1000"/>
 	</a>
