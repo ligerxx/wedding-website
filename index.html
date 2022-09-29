@@ -14,36 +14,6 @@
     <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
     <link href="css/ekko-lightbox.css?ver=1.1.0" rel="stylesheet">
     <link href="css/main.css?ver=1.1.0" rel="stylesheet">
-    <script type="text/javascript">
-    	const ical = document.getElementById("ical-link") ? document.getElementById("ical-link").href : null
-    	const linkElement = document.getElementById("ar-link");
-		linkElement.addEventListener("message", function (event) {			
-			if (event.data == "_apple_ar_quicklook_button_tapped") {
-			
-//             const t = document.querySelector('meta[property="analytics-track"]'),
-//                 e = document.getElementById("ical-link") ? document.getElementById("ical-link").href : null,
-//                 i = t.getAttribute("content").toLowerCase();
-//             document.getElementById("arql-link") && document.querySelectorAll(".ar-link").forEach((function(t) {
-//                 t.addEventListener("message", (function(t) {
-//                     if ("_apple_ar_quicklook_button_tapped" == t.data) {
-//                         try {
-//                             r.default && r.default.track({
-//                                 title: "quicklook add to calendar",
-//                                 prop3: "quicklook add to calendar",
-//                                 eVar1: `${i} - quicklook add to calendar`
-//                             }, {
-//                                 useBeacon: !0
-//                             })
-//                         } catch (t) {}
-//                         e && (window.location.href = e)
-//                     }
-//                 }), !1)
-//             }))
-//         }
-			 	window.location.href = ical;
-    		}
-		}, false);
-    </script>
     <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
     <style>
         #map {
@@ -439,7 +409,37 @@
     <script src="scripts/aos.js?ver=1.1.0"></script>
     <script src="scripts/ekko-lightbox.min.js?ver=1.1.0"></script>
     <script src="scripts/main.js?ver=1.1.0"></script>
-        <script>
+    <script type="text/javascript">
+    	const ical = document.getElementById("ical-link") ? document.getElementById("ical-link").href : null
+    	const linkElement = document.getElementById("ar-link");
+		linkElement.addEventListener("message", function (event) {			
+			if (event.data == "_apple_ar_quicklook_button_tapped") {
+			
+//             const t = document.querySelector('meta[property="analytics-track"]'),
+//                 e = document.getElementById("ical-link") ? document.getElementById("ical-link").href : null,
+//                 i = t.getAttribute("content").toLowerCase();
+//             document.getElementById("arql-link") && document.querySelectorAll(".ar-link").forEach((function(t) {
+//                 t.addEventListener("message", (function(t) {
+//                     if ("_apple_ar_quicklook_button_tapped" == t.data) {
+//                         try {
+//                             r.default && r.default.track({
+//                                 title: "quicklook add to calendar",
+//                                 prop3: "quicklook add to calendar",
+//                                 eVar1: `${i} - quicklook add to calendar`
+//                             }, {
+//                                 useBeacon: !0
+//                             })
+//                         } catch (t) {}
+//                         e && (window.location.href = e)
+//                     }
+//                 }), !1)
+//             }))
+//         }
+			 	window.location.href = ical;
+    		}
+		}, false);
+    </script>
+    <script>
         
         var MarkerAnnotation = mapkit.MarkerAnnotation,
             clickAnnotation;
