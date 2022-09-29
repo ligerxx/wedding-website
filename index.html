@@ -18,11 +18,7 @@
     	const linkElement = document.getElementById("ar-link");
 		linkElement.addEventListener("message", function (event) {
 			if (event.data == "_apple_ar_quicklook_button_tapped") {
-				var link=document.createElement('a');
-				var filePath = 'resources/Casey_Jessica _Wedding.ics';
-    			link.href = filePath
-    			link.download = filePath.substr(filePath.lastIndexOf('/') + 1);
-   				link.click();
+				window.location.assign("https://caseyandjessica.com/resources/Casey_Jessica _Wedding.ics");
     		}
 		}, false);
     </script>
