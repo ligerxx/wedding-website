@@ -322,10 +322,10 @@
 </div>
 <div class="ww-section" id="registry">
   <div class="container">
-    <h2 class="h1 text-center pb-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000"><a href="https://www.westelm.com/registry/jr92sbgv7d/registry-list.html">Registry at West Elm</a></h2>
+    <h2 class="h1 text-center pb-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000"><a href="https://www.westelm.com/registry/jr92sbgv7d/registry-list.html">Registry at West Elm & Williams Sonoma</a></h2>
   </div>
 </div>
-<div class="ww-section ww-rsvp-detail text-white" id="rsvp">
+<!-- <div class="ww-section ww-rsvp-detail text-white" id="rsvp">
   <div class="container" data-aos="zoom-in-up" data-aos-duration="1000">
     <div class="col text-center">
       <h2 class="h1 ww-title pb-3" data-aos="zoom-in-down" data-aos-duration="1000">Join Our Party</h2>
@@ -406,7 +406,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="ww-footer bg-light">
   <div class="container text-center py-4">
     <p class="my-0">&copy; Wonderful Wedding. All rights reserved.</p>
@@ -421,71 +421,71 @@
     <script src="scripts/ekko-lightbox.min.js?ver=1.1.0"></script>
     <script src="scripts/main.js?ver=1.1.0"></script>
     <script type="text/javascript">
-    	const ical = document.getElementById("ical-link") ? document.getElementById("ical-link").href : null
-    	const linkElement = document.getElementById("ar-link");
-		linkElement.addEventListener("message", function (event) {
-			if (event.data == "_apple_ar_quicklook_button_tapped") {
-			 	window.location.href = ical;
-    		}
-		}, false);
+    const ical = document.getElementById("ical-link") ? document.getElementById("ical-link").href : null
+    const linkElement = document.getElementById("ar-link");
+    linkElement.addEventListener("message", function (event) {
+      if (event.data == "_apple_ar_quicklook_button_tapped") {
+        window.location.href = ical;
+      }
+    }, false);
     </script>
     <script>
 
-        var MarkerAnnotation = mapkit.MarkerAnnotation,
-            clickAnnotation;
+    var MarkerAnnotation = mapkit.MarkerAnnotation,
+    clickAnnotation;
 
-        // Wedding Events
-        var paramourEstate = new mapkit.Coordinate(34.094775, -118.272117);
-        var paramourEstateRegion = new mapkit.CoordinateRegion(
-			new mapkit.Coordinate(34.094775, -118.272117),
-        	new mapkit.CoordinateSpan(0.167647972, 0.354985255)
-        );
+    // Wedding Events
+    var paramourEstate = new mapkit.Coordinate(34.094775, -118.272117);
+    var paramourEstateRegion = new mapkit.CoordinateRegion(
+    new mapkit.Coordinate(34.094775, -118.272117),
+    new mapkit.CoordinateSpan(0.167647972, 0.354985255)
+    );
 
-        // AirPort
-        var lax = new mapkit.Coordinate(33.944007, -118.403811);
-        var burbank = new mapkit.Coordinate(34.196452, -118.354254);
+    // AirPort
+    var lax = new mapkit.Coordinate(33.944007, -118.403811);
+    var burbank = new mapkit.Coordinate(34.196452, -118.354254);
 
-		// Hotels
-		var hotelA = new mapkit.Coordinate(34.095108, -118.372671);  // Best Western Plus Sunset Plaza
-		var hotelB = new mapkit.Coordinate(34.095360, -118.373265);  // Andaz West Hollywood
-		var hotelC = new mapkit.Coordinate(34.094280, -118.375634);  //1 Hotel
+    // Hotels
+    var hotelA = new mapkit.Coordinate(34.095108, -118.372671);  // Best Western Plus Sunset Plaza
+    var hotelB = new mapkit.Coordinate(34.095360, -118.373265);  // Andaz West Hollywood
+    var hotelC = new mapkit.Coordinate(34.094280, -118.375634);  //1 Hotel
 
-        mapkit.init({
-            authorizationCallback: function(done) {
-	            done("eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlM1QTdBWEw1RzgifQ.eyJpc3MiOiJYTjYzV0Q5NU44IiwiaWF0IjoxNjYwOTQ3NjE0LCJleHAiOjE2OTIzMTY4MDAsIm9yaWdpbiI6Imh0dHBzOi8vY2FzZXlhbmRqZXNzaWNhLmNvbSJ9.6L9nbkd2uTd0zj40wFbRIMxybS3JWrFO7bzqBn9C7oUYycFT-UFQ2a8Ncjz5h6kqO5l9vcc9MILBGPN9reUgew");
-            },
-            language: "en-US"
-        });
-        var hotelMap = new mapkit.Map("hotel-map");
-        var map = new mapkit.Map("map");
-        map.region = paramourEstateRegion;
+    mapkit.init({
+    authorizationCallback: function(done) {
+      done("eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlM1QTdBWEw1RzgifQ.eyJpc3MiOiJYTjYzV0Q5NU44IiwiaWF0IjoxNjYwOTQ3NjE0LCJleHAiOjE2OTIzMTY4MDAsIm9yaWdpbiI6Imh0dHBzOi8vY2FzZXlhbmRqZXNzaWNhLmNvbSJ9.6L9nbkd2uTd0zj40wFbRIMxybS3JWrFO7bzqBn9C7oUYycFT-UFQ2a8Ncjz5h6kqO5l9vcc9MILBGPN9reUgew");
+    },
+      language: "en-US"
+    });
+    var hotelMap = new mapkit.Map("hotel-map");
+    var map = new mapkit.Map("map");
+    map.region = paramourEstateRegion;
 
 
-        // Setting properties on creation:
-        // Wedding Event
-        var paramourAnnotation = new MarkerAnnotation(paramourEstate, { color: "#f4a56d", title: "The Paramour Estate", glyphText: "💒" });
+    // Setting properties on creation:
+    // Wedding Event
+    var paramourAnnotation = new MarkerAnnotation(paramourEstate, { color: "#f4a56d", title: "The Paramour Estate", glyphText: "💒" });
 
-        // Hotels + Event
-        var laxAnnotation = new MarkerAnnotation(lax, { color: "#00C4F9", title: "LAX", glyphText: "✈️" });
-        var burbankAnnotation = new MarkerAnnotation(burbank, { color: "#00C4F9", title: "BUR", glyphText: "✈️" });
-		var paramourAnnotationCopy = new MarkerAnnotation(paramourEstate, { color: "#f4a56d", title: "The Paramour Estate", glyphText: "💒" });
-        var hotelAnnotationA = new MarkerAnnotation(hotelA, { color: "#AA68FF", title: "Best Western", glyphText: "🏨"});
-		var hotelAnnotationB = new MarkerAnnotation(hotelB, { color: "#AA68FF", title: "Andaz", glyphText:  "🏨"});
-		var hotelAnnotationC = new MarkerAnnotation(hotelC, { color: "#AA68FF", title: "1 Hotel", glyphText: "🏨"});
+    // Hotels + Event
+    var laxAnnotation = new MarkerAnnotation(lax, { color: "#00C4F9", title: "LAX", glyphText: "✈️" });
+    var burbankAnnotation = new MarkerAnnotation(burbank, { color: "#00C4F9", title: "BUR", glyphText: "✈️" });
+    var paramourAnnotationCopy = new MarkerAnnotation(paramourEstate, { color: "#f4a56d", title: "The Paramour Estate", glyphText: "💒" });
+    var hotelAnnotationA = new MarkerAnnotation(hotelA, { color: "#AA68FF", title: "Best Western", glyphText: "🏨"});
+    var hotelAnnotationB = new MarkerAnnotation(hotelB, { color: "#AA68FF", title: "Andaz", glyphText:  "🏨"});
+    var hotelAnnotationC = new MarkerAnnotation(hotelC, { color: "#AA68FF", title: "1 Hotel", glyphText: "🏨"});
 
-        // Setting properties after creation:
-//         var workAnnotation = new MarkerAnnotation(work);
-//         workAnnotation.color = "#969696";
-//         workAnnotation.title = "Work";
-//         workAnnotation.subtitle = "Apple Park";
-//         workAnnotation.selected = "true";
-//         workAnnotation.glyphText = "";
+    // Setting properties after creation:
+    //         var workAnnotation = new MarkerAnnotation(work);
+    //         workAnnotation.color = "#969696";
+    //         workAnnotation.title = "Work";
+    //         workAnnotation.subtitle = "Apple Park";
+    //         workAnnotation.selected = "true";
+    //         workAnnotation.glyphText = "";
 
-        // Add and show both annotations on the map
-        map.showItems([paramourAnnotation]);
+    // Add and show both annotations on the map
+    map.showItems([paramourAnnotation]);
 
-        hotelMap.showItems([laxAnnotation, burbankAnnotation, hotelAnnotationA, hotelAnnotationB, hotelAnnotationC, paramourAnnotationCopy]);
+    hotelMap.showItems([laxAnnotation, burbankAnnotation, hotelAnnotationA, hotelAnnotationB, hotelAnnotationC, paramourAnnotationCopy]);
 
-        </script>
+    </script>
   </body>
 </html>
