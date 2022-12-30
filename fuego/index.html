@@ -364,8 +364,8 @@
 				</div>
 			</div>
 			<div class="row">
-			<div class="col text-center">
-					<button class="btn btn-primary btn-submit" type="submit">Send Response | 확인</button>
+  			<div class="col text-center">
+					<button id="submit-btn" class="btn btn-primary btn-submit" type="submit">Send Response | 확인</button>
 				</div>
 			</div>
 		</form>
@@ -392,6 +392,15 @@
             //optional validation code here
             
         e.preventDefault();
+			  
+        var textArray = [
+					'Grab your dancing shoes...',
+					'Smokey is reviewing your response'
+				];
+				var randomNumber = Math.floor(Math.random()*textArray.length);
+        
+        $("#submit-btn").text(textArray[randomNumber]);
+        $('#submit-btn').attr('disabled', true);
 
         $.ajax({
             url: "https://script.google.com/macros/s/AKfycbzV0HVoywcKQeGUjlx6kSJY-7be0vr-EnStd5tXA5-o_BzwLK-LiZiSEPAsUGLdKqljTg/exec",
@@ -401,7 +410,8 @@
             success: function (response) {
                 console.log("response!");
                 console.log($("#wedding-form").serialize());
-
+								 $('#submit-btn').attr('disabled', false);
+                
                 if (response.result == "success") {
                     $('#wedding-form')[0].reset();
                     alert('Thank you for letting us know! 답변 주셔서 감사합니다');
@@ -413,6 +423,7 @@
                 }
             },
             error: function (error) {
+                $('#submit-btn').attr('disabled', false);
                 console.log("error in response");
                 alert("Something went wrong with the form. Please message Casey or Jessica the details or try again later.");
             }
