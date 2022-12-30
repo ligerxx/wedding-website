@@ -333,6 +333,7 @@
   <div class="container" data-aos="zoom-in-up" data-aos-duration="1000">
     <div class="col text-center">
       <h2 class="h1 ww-title pb-3" data-aos="zoom-in-down" data-aos-duration="1000">Are You Attending?</h2>
+      <h3 class="h2 ww-title pb-3" data-aos="zoom-in-down" data-aos-duration="1050">참석할 것인가요?</h3>
     </div>
     <div class="row ww-rsvp-form">
       <div class="col-md-10">
@@ -341,24 +342,24 @@
 			<div class="row">
 				<div class="col md-6 pb-3">
 					<div class="form-group">
-						<label for="name-input">Your Name(s)*</label>
+						<label for="name-input">Your Name(s) | 성, 명</label>
 						<input class="form-control" id="name-input" type="text" name="name"
 								required="required"/>
 					</div>
 				</div>
 				<div class="col-md-6 pb-3">
 					<div class="form-group">
-						<label for="email-input">Your Email(s)*</label>
+						<label for="email-input">Your Email(s) | 이메일 주소</label>
 						<input class="form-control" id="email-input" type="email"
 								name="email" required="required"/>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 pb-3">
+				<div class="col pb-3">
 					<div class="form-group">
-						<label for="song-input">Song Request (optional)</label>
-						<input class="form-control" id="song-input" type="text" name="song">
+						<label for="food-input">Food Allergies (optional) | 음식 알레르기가 있습니까?</label>
+						<input class="form-control" id="food-input" type="text" name="food">
 					</div>
 				</div>
 			</div>
@@ -403,18 +404,17 @@
 
                 if (response.result == "success") {
                     $('#wedding-form')[0].reset();
-                    alert('Thank you for contacting us.');
+                    alert('Thank you for letting us know!');
                     return true;
                 } else {
                     console.log("something weird in response");
                     console.log(response);
-                    alert("The form was not submitted successfully. Please let Casey or Jessica know and try again later.");
+                    alert("Something went wrong and your response was not submitted successfully. Please message Casey or Jessica the details or try again later.");
                 }
             },
             error: function (error) {
                 console.log("error in response");
-                console.log(error);
-                alert("The form failed. Please let Casey or Jessica know and try again later.");
+                alert("Something went wrong with the form. Please message Casey or Jessica the details or try again later.");
             }
         })
     });
