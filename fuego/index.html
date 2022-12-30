@@ -389,15 +389,15 @@
     <script src="scripts/main.js?ver=1.1.0"></script>
     <script type="text/javascript">
         $('#wedding-form').on('submit', function (e) {
-            //optional validation code here
-            
+        //optional validation code here
         e.preventDefault();
 			  
-        var textArray = [
-					'Grab your dancing shoes...',
-					'Smokey is reviewing your response...'
+        var textArray = ['Grab your dancing shoes...',
+                         'Smokey is reviewing your response...',
+                         'Next stop Hollywood...',
+                         'Preparing the dancefloor...',
 				];
-				var randomNumber = Math.floor(Math.random()*textArray.length);
+        var randomNumber = Math.floor(Math.random()*textArray.length);
         
         $("#submit-btn").text(textArray[randomNumber]);
         $('#submit-btn').attr('disabled', true);
