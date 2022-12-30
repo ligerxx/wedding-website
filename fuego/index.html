@@ -387,8 +387,10 @@
     <script src="scripts/ekko-lightbox.min.js?ver=1.1.0"></script>
     <script src="scripts/main.js?ver=1.1.0"></script>
     <script type="text/javascript">
-    $('#wedding-form').on('submit', function (e) {
-        //optional validation code here
+        $('#wedding-form').on('submit', function (e) {
+            //optional validation code here
+            
+        e.preventDefault();
 
         $.ajax({
             url: "https://script.google.com/macros/s/AKfycbzV0HVoywcKQeGUjlx6kSJY-7be0vr-EnStd5tXA5-o_BzwLK-LiZiSEPAsUGLdKqljTg/exec",
