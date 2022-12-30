@@ -409,9 +409,9 @@
 <!--                    alert("The form was not submitted successfully. Please let Casey or Jessica know and try again later.")-->
                 }
             },
-            error: function () {
+            error: function (error) {
                 console.log("error in response");
-                console.log(response);
+                console.log(error);
 <!--                alert("The form failed. Please let Casey or Jessica know and try again later.")-->
             }
         })
