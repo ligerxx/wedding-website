@@ -358,11 +358,47 @@
 			<div class="row">
 				<div class="col pb-3">
 					<div class="form-group">
+						<label for="attendance-input">Will You Be Attending The Wedding? | ?</label>
+						  <select name="attendance" id="attendance-input" required="required">
+							<option disabled value="skipped" selected hidden></option>
+							<option value="yes">Yes, See You There!</option>
+							<option value="no">No, But Sending Love!</option>
+						  </select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col pb-3">
+					<div class="form-group">
+						<label for="transportation-input">If You Are Staying At One Of Our Hotels, Do You Plan To Use The Shuttle Service Between Hotel And The Wedding?  | ?</label>
+						  <select name="transportation" id="transportation-input" required="required">
+							<option disabled value="skipped" selected hidden></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						  </select>
+					</div>
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col pb-3">
+					<div class="form-group">
 						<label for="food-input">Food Allergies (optional) | 음식 알레르기가 있습니까?</label>
 						<input class="form-control" id="food-input" type="text" name="food">
 					</div>
 				</div>
-			</div>
+			</div>			
+			<div class="row">
+				<div class="col pb-3">
+					<div class="form-group">
+						<label for="saturday-input">Will You Be Attending Saturday Night's Picnic In The Park? (optional) | ?</label>
+						  <select name="saturday" id="saturday-input">
+							<option disabled value="skipped" selected hidden></option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						  </select>
+					</div>
+				</div>
+			</div>			
 			<div class="row">
   			<div class="col text-center">
 					<button id="submit-btn" class="btn btn-primary btn-submit" type="submit">Send Response<br />확인</button>
@@ -392,10 +428,10 @@
         //optional validation code here
         e.preventDefault();
 			  
-        var textArray = ['Grab your dancing shoes...',
-                         'Smokey is reviewing your response...',
-                         'Next stop Hollywood...',
-                         'Preparing the dancefloor...',
+        var textArray = ['💃🕺 Get on your dancing shoes...',
+                         '🐶 Smokey is reviewing your response...',
+                         '🥂 Pouring the champagne...',
+                         '🪩 Preparing the dancefloor...',
 				];
         var randomNumber = Math.floor(Math.random()*textArray.length);
         
