@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Casey & Jessica - June•2nd•2023</title>
+    <link rel="stylesheet" href="https://use.typekit.net/lkz2qgp.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link href="css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
+    <link href="css/font-awesome/css/all.min.css?ver=1.1.0" rel="stylesheet">
+    <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
+    <link href="css/ekko-lightbox.css?ver=1.1.0" rel="stylesheet">
+    <link href="css/main.css?ver=1.1.0" rel="stylesheet">
+    <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
+    <style>
+        #map {
+            max-width: 580px;
+            min-height: 300px;
+            height: 100%;
+        }
+        #hotel-map {
+            max-width: 580px;
+            min-height: 300px;
+            height: 100%;
+        }
+    </style>
+    <noscript>
+      <style type="text/css">
+        [data-aos] {
+            opacity: 1 !important;
+            transform: translate(0) scale(1) !important;
+        }
+      </style>
+    </noscript>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  </head>
+  <body id="top">
+    <header></header>
+    <div class="page-content">
+      <div class="div">
+<div class="ww-nav-bar sticky-top bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container"><a href="#"><svg class="heart" viewBox="0 0 32 29.6"><path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+</svg></a>
+      <h1 class="h2"><a class="pl-4 navbar-brand" href="#">It's About Time!</a></h1>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ww-navbarNav" aria-controls="ww-navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse text-uppercase" id="ww-navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="https://www.caseyandjessica.com">Home</a></li>
+          <!-- <li class="nav-item"><a class="nav-link smooth-scroll" href="#rsvp">RSVP</a></li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class="ww-section ww-rsvp-detail text-white" id="rsvp">
+  <div class="container" data-aos="zoom-in-up" data-aos-duration="1000">
+    <div class="col text-center">
+      <h2 class="h1 ww-title pb-3" data-aos="zoom-in-down" data-aos-duration="1000">Are You Attending?</h2>
+      <h3 class="h2 ww-title pb-3" data-aos="zoom-in-down" data-aos-duration="1050">참석할 것인가요?</h3>
+    </div>
+    <div class="row ww-rsvp-form">
+      <div class="col-md-9">
+        <div class="card-body">
+		<form id="wedding-form">
+			<div class="row">
+				<div class="col md-6 pb-3">
+					<div class="form-group">
+						<label for="name-input">Your Name(s) | 성, 명</label>
+						<input class="form-control" id="name-input" type="text" name="name"
+								required="required"/>
+					</div>
+				</div>
+				<div class="col-md-6 pb-3">
+					<div class="form-group">
+						<label for="email-input">Your Email(s) | 이메일 주소</label>
+						<input class="form-control" id="email-input" type="email"
+								name="email" required="required"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col pb-3">
+					<div class="form-group">
+						<label for="attendance-input">Will You Be Attending The Wedding? | 결혼식에 참석할 것인가요?</label>
+						  <select name="attendance" id="attendance-input" required="required">
+							<option disabled value="skipped" selected hidden></option>
+							<option value="yes">Yes, See You There! | 네</option>
+							<option value="no">No, But Sending Love! | 아니요</option>
+						  </select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col pb-3">
+					<div class="form-group">
+						<label for="transportation-input">If You Are Staying At One Of Our Hotels, Do You Plan To Use The Shuttle Service Between Hotel And The Wedding? | 호텔에서 결혼식장까지 셔틀버스가 필요합니까?</label>
+						  <select name="transportation" id="transportation-input" required="required">
+							<option disabled value="skipped" selected hidden></option>
+							<option value="yes">Yes | 네</option>
+							<option value="no">No | 아니요</option>
+						  </select>
+					</div>
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col pb-3">
+					<div class="form-group">
+						<label for="food-input">Food Allergies (optional) | 음식 알레르기가 있습니까?</label>
+						<input class="form-control" id="food-input" type="text" name="food">
+					</div>
+				</div>
+			</div>			
+			<div class="row">
+				<div class="col pb-3">
+					<div class="form-group">
+						<label for="saturday-input">Will You Be Attending Saturday Night's Picnic In The Park? (optional) | 토요일 행사에 참석할 예정입니까?</label>
+						  <select name="saturday" id="saturday-input">
+							<option disabled value="skipped" selected hidden></option>
+							<option value="yes">Yes | 네</option>
+							<option value="no">No | 아니요</option>
+						  </select>
+					</div>
+				</div>
+			</div>			
+			<div class="row">
+                <div class="col text-center">
+					<button id="submit-btn" class="btn btn-primary btn-submit" type="submit">Send Response<br />확인</button>
+				</div>
+            </div>
+		</form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ww-footer bg-light">
+</div></div>
+    </div>
+    <footer></footer>
+    <script src="scripts/jquery.min.js?ver=1.1.0"></script>
+    <script src="scripts/bootstrap.bundle.min.js?ver=1.1.0"></script>
+    <script src="scripts/aos.js?ver=1.1.0"></script>
+    <script src="scripts/ekko-lightbox.min.js?ver=1.1.0"></script>
+    <script src="scripts/main.js?ver=1.1.0"></script>
+    <script type="text/javascript">
+        $('#wedding-form').on('submit', function (e) {
+        //optional validation code here
+        e.preventDefault();
+			  
+        var textArray = ['💃🕺 Get on your dancing shoes...',
+                         '🐶 Smokey is reviewing your response...',
+                         '🥂 Pouring the champagne...',
+                         '🪩 Preparing the dancefloor...',
+				];
+        var randomNumber = Math.floor(Math.random()*textArray.length);
+        
+        $("#submit-btn").text(textArray[randomNumber]);
+        $('#submit-btn').attr('disabled', true);
+
+        $.ajax({
+            url: "https://script.google.com/macros/s/AKfycbzV0HVoywcKQeGUjlx6kSJY-7be0vr-EnStd5tXA5-o_BzwLK-LiZiSEPAsUGLdKqljTg/exec",
+            method: "POST",
+            dataType: "json",
+            data: $("#wedding-form").serialize(),
+            success: function (response) {
+                console.log("response!");
+                console.log($("#wedding-form").serialize());
+                $("#submit-btn").text('Submitted!');
+                
+                if (response.result == "success") {
+                    $('#wedding-form')[0].reset();
+                    alert('Thank you for letting us know! 답변 주셔서 감사합니다');
+                    return true;
+                } else {
+                    console.log("something weird in response");
+                    console.log(response);
+                    alert("Something went wrong and your response was not submitted successfully. Please message Casey or Jessica the details or try again later.");
+                }
+            },
+            error: function (error) {
+                $("#submit-btn").text('Send Response<br />확인');
+                $('#submit-btn').attr('disabled', false);
+                console.log("error in response");
+                alert("Something went wrong with the form. Please message Casey or Jessica the details or try again later.");
+            }
+        })
+    });
+    </script>
+    <script type="text/javascript">
+    const ical = document.getElementById("ical-link") ? document.getElementById("ical-link").href : null
+    const linkElement = document.getElementById("ar-link");
+    linkElement.addEventListener("message", function (event) {
+      if (event.data == "_apple_ar_quicklook_button_tapped") {
+        window.location.href = ical;
+      }
+    }, false);
+    </script>
+    <script>
+
+    var MarkerAnnotation = mapkit.MarkerAnnotation,
+    clickAnnotation;
+
+    // Wedding Events
+    var paramourEstate = new mapkit.Coordinate(34.094775, -118.272117);
+    var paramourEstateRegion = new mapkit.CoordinateRegion(
+    new mapkit.Coordinate(34.094775, -118.272117),
+    new mapkit.CoordinateSpan(0.167647972, 0.354985255)
+    );
+
+    // AirPort
+    var lax = new mapkit.Coordinate(33.944007, -118.403811);
+    var burbank = new mapkit.Coordinate(34.196452, -118.354254);
+
+    // Hotels
+    var hotelA = new mapkit.Coordinate(34.095108, -118.372671);  // Best Western Plus Sunset Plaza
+    var hotelB = new mapkit.Coordinate(34.095360, -118.373265);  // Andaz West Hollywood
+    var hotelC = new mapkit.Coordinate(34.094280, -118.375634);  //1 Hotel
+
+    mapkit.init({
+    authorizationCallback: function(done) {
+      done("eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlM1QTdBWEw1RzgifQ.eyJpc3MiOiJYTjYzV0Q5NU44IiwiaWF0IjoxNjYwOTQ3NjE0LCJleHAiOjE2OTIzMTY4MDAsIm9yaWdpbiI6Imh0dHBzOi8vY2FzZXlhbmRqZXNzaWNhLmNvbSJ9.6L9nbkd2uTd0zj40wFbRIMxybS3JWrFO7bzqBn9C7oUYycFT-UFQ2a8Ncjz5h6kqO5l9vcc9MILBGPN9reUgew");
+    },
+      language: "en-US"
+    });
+    var hotelMap = new mapkit.Map("hotel-map");
+    var map = new mapkit.Map("map");
+    map.region = paramourEstateRegion;
+
+
+    // Setting properties on creation:
+    // Wedding Event
+    var paramourAnnotation = new MarkerAnnotation(paramourEstate, { color: "#f4a56d", title: "The Paramour Estate", glyphText: "💒" });
+
+    // Hotels + Event
+    var laxAnnotation = new MarkerAnnotation(lax, { color: "#00C4F9", title: "LAX", glyphText: "✈️" });
+    var burbankAnnotation = new MarkerAnnotation(burbank, { color: "#00C4F9", title: "BUR", glyphText: "✈️" });
+    var paramourAnnotationCopy = new MarkerAnnotation(paramourEstate, { color: "#f4a56d", title: "The Paramour Estate", glyphText: "💒" });
+    var hotelAnnotationA = new MarkerAnnotation(hotelA, { color: "#AA68FF", title: "Best Western", glyphText: "🏨"});
+    var hotelAnnotationB = new MarkerAnnotation(hotelB, { color: "#AA68FF", title: "Andaz", glyphText:  "🏨"});
+    var hotelAnnotationC = new MarkerAnnotation(hotelC, { color: "#AA68FF", title: "1 Hotel", glyphText: "🏨"});
+
+    // Setting properties after creation:
+    //         var workAnnotation = new MarkerAnnotation(work);
+    //         workAnnotation.color = "#969696";
+    //         workAnnotation.title = "Work";
+    //         workAnnotation.subtitle = "Apple Park";
+    //         workAnnotation.selected = "true";
+    //         workAnnotation.glyphText = "";
+
+    // Add and show both annotations on the map
+    map.showItems([paramourAnnotation]);
+
+    hotelMap.showItems([laxAnnotation, burbankAnnotation, hotelAnnotationA, hotelAnnotationB, hotelAnnotationC, paramourAnnotationCopy]);
+
+    </script>
+  </body>
+</html>
