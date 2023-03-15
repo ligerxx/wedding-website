@@ -102,8 +102,6 @@
             <li class="pt-2"><i class="text-muted far fa-share"></i><span class="pl-2 text-muted"><a href="https://caseyandjessica.com/resources/Casey_Jessica_Wedding.ics/">Add to Calendar</a></span></li>
           </ul>
 		  <div class="my-3"><img class="img-fluid" src="images/wedding-party.jpg" alt="Paramour Estate Overlook" data-aos="fade-down-right" data-aos-duration="1000"/></div>
-<!--           https://snapshot.apple-mapkit.com/api/v1/snapshot?center=34.09478760578792%2C-118.27126312255858&t=standard&scale=1&spn=0.06837642386624054%2C0.07724761962890625&size=500x500&lang=en-US&poi=1&annotations=%5B%7B%22point%22%3A%2234.09478759765625%2C-118.2712631225586%22%2C%22markerStyle%22%3A%22large%22%2C%22color%22%3A%22ffa57d%22%7D%5D&expires=1703808000&teamId=XN63WD95N8&keyId=S5A7AXL5G8&signature=laEV54rMrHWfISMPqvGcMEMbGv7uZ5C5J5yYve1fGEZuAQ3pCUj3zVtuKJ2DQbEwVSOQELXvbzfTRSVx5OITfg -->
-
 			<p>Here's some things to expect at our wedding party...tasty drinks, cocktail attire, GREAT music for dancing all night, and lots of memories. Parking will be very limited. We are planning shuttles from the hotel, but also encourage ride-sharing apps like Uber and Lyft. If you are considering riding in on horseback...well...please don't. Our wedding is an adult only reception as our venue will not accomodate children. But please stay tuned for additional activities throughout the duration of weekend where everyone is welcome.</p>
 			<p>We can't wait to celebrate with you all!</p>
         </div>
@@ -119,12 +117,18 @@
         <div class="my-3">
           <div class="h4">Picnic in the Park</div>
           <ul>
-            <li><i class="text-muted fas fa-heart"></i><span class="pl-2 text-muted">Local Park (Location TBD)</span></li>
+            <li><i class="text-muted fas fa-heart"></i><span class="pl-2 text-muted">Roxbury Park</span></li>
+            <li class="pt-2"><i class="text-muted far fa-map-marker-alt"></i><span class="pl-2 text-muted">471 S Roxbury Dr, Beverly Hills, CA 90212</span></li>
             <li class="pt-2"><i class="text-muted far fa-calendar-alt"></i><span class="pl-2 text-muted">Saturday, June 3, 2023 @ Late Afternoon</span></li>
             <li class="pt-2"><i class="text-muted far fa-user-tie"></i><span class="pl-2 text-muted">Casual</span></li>
-			<br>
+			      <br>
             <p>Let's keep the party going! Join us for food trucks, games, and great company. Children are welcomed!</p>
           </ul>
+          </div>
+          <div class="col-md-5 col-sm-12">
+            <a href="https://maps.apple.com/?address=471%20S%20Roxbury%20Dr,%20Beverly%20Hills,%20CA%20%2090212,%20United%20States&auid=7300683942723485805&ll=34.058544,-118.407029&lsp=9902&q=Roxbury%20Park">
+              <div id="park-map" data-aos="fade-down-left" data-aos-duration="1000"></div>
+            </a>
           </div>
         </div>
     </div>
@@ -321,7 +325,7 @@
     <div class="container">
       <h2 class="h1 text-center pb-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000">Photo Gallery</h2>
 <!--       <div class="col-md-12 text-center ww-category-filter mb-4"><a class="btn btn-outline-primary ww-filter-button" href="#" data-filter="all">All</a><a class="btn btn-outline-primary ww-filter-button" href="#" data-filter="vacation">Our Vacation</a><a class="btn btn-outline-primary ww-filter-button" href="#" data-filter="party">Party</a><a class="btn btn-outline-primary ww-filter-button" href="#" data-filter="ceremony">Ceremony</a><a class="btn btn-outline-primary ww-filter-button" href="#" data-filter="wedding">Wedding</a></div> -->
-      <div class="ww-gallery" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-duration="1000" data-aos-offset="0">
+<div class="ww-gallery" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-duration="1000" data-aos-offset="0">
         <div class="card-columns">
           <div class="card" data-groups="[&quot;vacation&quot;,&quot;ceremony&quot;]"><a href="images/gallery-pic-1.jpg" data-toggle="lightbox" data-gallery="ww-gallery"><img class="img-fluid" src="images/gallery-pic-1.jpg" alt="Gallery Pic 1"/></a></div>
           <div class="card" data-groups="[&quot;party&quot;,&quot;wedding&quot;]"><a href="images/gallery-pic-2.jpg" data-toggle="lightbox" data-gallery="ww-gallery"><img class="img-fluid" src="images/gallery-pic-2.jpg" alt="Gallery Pic 2"/></a></div>
@@ -468,6 +472,9 @@
     new mapkit.CoordinateSpan(0.167647972, 0.354985255)
     );
 
+    // Park
+    var roxburyPark = new mapkit.Coordinate(34.058544, -118.407029);
+
     // AirPort
     var lax = new mapkit.Coordinate(33.944007, -118.403811);
     var burbank = new mapkit.Coordinate(34.196452, -118.354254);
@@ -485,6 +492,7 @@
     });
     var hotelMap = new mapkit.Map("hotel-map");
     var map = new mapkit.Map("map");
+    var parkMap = new mapkit.Map("park-map");
     map.region = paramourEstateRegion;
 
 
@@ -499,6 +507,7 @@
     var hotelAnnotationA = new MarkerAnnotation(hotelA, { color: "#AA68FF", title: "Best Western", glyphText: "🏨"});
     var hotelAnnotationB = new MarkerAnnotation(hotelB, { color: "#AA68FF", title: "Andaz", glyphText:  "🏨"});
     var hotelAnnotationC = new MarkerAnnotation(hotelC, { color: "#AA68FF", title: "1 Hotel", glyphText: "🏨"});
+    var parkAnnotation = new MarkerAnnotation(roxburyPark, { color: "#03C04A", title: "Roxbury Park", glyphText: "🌳" });
 
     // Setting properties after creation:
     //         var workAnnotation = new MarkerAnnotation(work);
@@ -512,6 +521,8 @@
     map.showItems([paramourAnnotation]);
 
     hotelMap.showItems([laxAnnotation, burbankAnnotation, hotelAnnotationA, hotelAnnotationB, hotelAnnotationC, paramourAnnotationCopy]);
+
+    parkMap.showItems([parkAnnotation]);
 
     </script>
   </body>
