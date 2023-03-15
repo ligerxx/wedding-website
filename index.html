@@ -118,17 +118,12 @@
           <div class="h4">Picnic in the Park</div>
           <ul>
             <li><i class="text-muted fas fa-heart"></i><span class="pl-2 text-muted">Roxbury Park</span></li>
-            <li class="pt-2"><i class="text-muted far fa-map-marker-alt"></i><span class="pl-2 text-muted">471 S Roxbury Dr, Beverly Hills, CA 90212</span></li>
+            <li class="pt-2"><i class="text-muted far fa-map-marker-alt"></i><span class="pl-2 text-muted"><a href="https://maps.apple.com/?address=471%20S%20Roxbury%20Dr,%20Beverly%20Hills,%20CA%20%2090212,%20United%20States&auid=7300683942723485805&ll=34.058544,-118.407029&lsp=9902&q=Roxbury%20Park">471 S Roxbury Dr, Beverly Hills, CA 90212</a></span></li>
             <li class="pt-2"><i class="text-muted far fa-calendar-alt"></i><span class="pl-2 text-muted">Saturday, June 3, 2023 @ Late Afternoon</span></li>
             <li class="pt-2"><i class="text-muted far fa-user-tie"></i><span class="pl-2 text-muted">Casual</span></li>
 			      <br>
             <p>Let's keep the party going! Join us for food trucks, games, and great company. Children are welcomed!</p>
           </ul>
-          </div>
-          <div class="col-md-5 col-sm-12">
-            <a href="https://maps.apple.com/?address=471%20S%20Roxbury%20Dr,%20Beverly%20Hills,%20CA%20%2090212,%20United%20States&auid=7300683942723485805&ll=34.058544,-118.407029&lsp=9902&q=Roxbury%20Park">
-              <div id="park-map" data-aos="fade-down-left" data-aos-duration="1000"></div>
-            </a>
           </div>
         </div>
     </div>
@@ -492,7 +487,6 @@
     });
     var hotelMap = new mapkit.Map("hotel-map");
     var map = new mapkit.Map("map");
-    var parkMap = new mapkit.Map("park-map");
     map.region = paramourEstateRegion;
 
 
@@ -518,11 +512,9 @@
     //         workAnnotation.glyphText = "";
 
     // Add and show both annotations on the map
-    map.showItems([paramourAnnotation]);
+    map.showItems([paramourAnnotation, roxburyPark]);
 
     hotelMap.showItems([laxAnnotation, burbankAnnotation, hotelAnnotationA, hotelAnnotationB, hotelAnnotationC, paramourAnnotationCopy]);
-
-    parkMap.showItems([parkAnnotation]);
 
     </script>
   </body>
