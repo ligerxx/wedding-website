@@ -72,7 +72,7 @@
           <li class="nav-item"><a class="nav-link smooth-scroll" href="#people">People</a></li>
           <li class="nav-item"><a class="nav-link smooth-scroll" href="#gallery">Gallery</a></li>
           <li class="nav-item"><a class="nav-link smooth-scroll" href="#registry">Registry</a></li>
-          <!-- <li class="nav-item"><a class="nav-link smooth-scroll" href="#rsvp">RSVP</a></li> -->
+          <li class="nav-item"><a class="nav-link smooth-scroll" href="#rsvp">RSVP</a></li>
         </ul>
       </div>
     </div>
@@ -127,7 +127,7 @@
             <li class="pt-2"><i class="text-muted far fa-calendar-alt"></i><span class="pl-2 text-muted">Saturday, June 3, 2023 @ Late Afternoon</span></li>
             <li class="pt-2"><i class="text-muted far fa-user-tie"></i><span class="pl-2 text-muted">Casual</span></li>
 			      <br>
-            <p>Let's keep the party going! Join us for food trucks, games, and great company. Children are welcomed!</p>
+            <p>Let's keep the party going! Join us for food trucks, games, and great company. Children are welcome!</p>
           </ul>
           </div>
         </div>
@@ -361,88 +361,87 @@
       <h2 class="h3 text-center pt-3 ww-title" data-aos="zoom-in-down" data-aos-duration="1000"><a href="https://www.zola.com/registry/caseyandjessicajune2">Registry on Zola</a></h2>
   </div>
 </div>
-<!-- <div class="ww-section ww-rsvp-detail text-white" id="rsvp">
+<div class="ww-section ww-rsvp-detail text-white" id="rsvp">
   <div class="container" data-aos="zoom-in-up" data-aos-duration="1000">
     <div class="col text-center">
-      <h2 class="h1 ww-title pb-3" data-aos="zoom-in-down" data-aos-duration="1000">Join Our Party</h2>
+      <h2 class="h1 ww-title pb-3" data-aos="zoom-in-down" data-aos-duration="1000">Are You Attending?</h2>
+      <h3 class="h2 ww-title pb-3" data-aos="zoom-in-down" data-aos-duration="1050">참석할 것인가요?</h3>
     </div>
     <div class="row ww-rsvp-form">
-      <div class="col-md-10">
+      <div class="col-md-9">
         <div class="card-body">
-        	<script type="text/javascript">
-			$('#wedding-form').on('submit', function (e) {
-				//optional validation code here
-
-				e.preventDefault();
-
-				$.ajax({
-					url: "https://script.google.com/macros/s/AKfycbzFvBb6p9Bu9k_0GeXFvZzh-f3DHCtImIPHZozOKT30CqnVnl19h3IYTxDZN6DtP0-ubA/exec",
-					method: "POST",
-					dataType: "json",
-					data: $("#wedding-form").serialize(),
-					success: function (response) {
-						console.log("response!");
-						console.log($("#wedding-form").serialize());
-
-						if (response.result == "success") {
-							$('#wedding-form')[0].reset();
-							alert('Thank you for contacting us.');
-							return true;
-						} else {
-							alert("The form was not submitted successfully. Please let Casey or Jessica know and try again later.")
-						}
-					},
-					error: function () {
-						alert("The form failed. Please let Casey or Jessica know and try again later.")
-					}
-				})
-			});
-			</script>
 		<form id="wedding-form">
 			<div class="row">
 				<div class="col md-6 pb-3">
 					<div class="form-group">
-						<label for="name-input">Your Name(s)*</label>
+						<label for="name-input">Your Name(s) | 성, 명</label>
 						<input class="form-control" id="name-input" type="text" name="name"
 								required="required"/>
 					</div>
 				</div>
 				<div class="col-md-6 pb-3">
 					<div class="form-group">
-						<label for="email-input">Your Email(s)*</label>
+						<label for="email-input">Your Email(s) | 이메일 주소</label>
 						<input class="form-control" id="email-input" type="email"
 								name="email" required="required"/>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 pb-3">
+				<div class="col pb-3">
 					<div class="form-group">
-						<label for="code-input">Invite Code*</label>
-						<input class="form-control" id="code-input" type="text" name="code"
-								required="required"/>
+						<label for="attendance-input">Will You Be Attending The Wedding? | 결혼식에 참석할 것인가요?</label>
+						  <select name="attendance" id="attendance-input" required="required">
+							<option disabled value="skipped" selected hidden></option>
+							<option value="yes">Yes, See You There! | 네</option>
+							<option value="no">No, But Sending Love! | 아니요</option>
+						  </select>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 pb-3">
+				<div class="col pb-3">
 					<div class="form-group">
-						<label for="song-input">Song Request (optional)</label>
-						<input class="form-control" id="song-input" type="text" name="song">
+						<label for="transportation-input">If You Are Staying At One Of Our Hotels, Do You Plan To Use The Shuttle Service Between Hotel And The Wedding? | 호텔에서 결혼식장까지 셔틀버스가 필요합니까?</label>
+						  <select name="transportation" id="transportation-input" required="required">
+							<option disabled value="skipped" selected hidden></option>
+							<option value="yes">Yes | 네</option>
+							<option value="no">No | 아니요</option>
+						  </select>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-			<div class="col text-center">
-					<button class="btn btn-primary btn-submit" type="submit">Send</button>
+				<div class="col pb-3">
+					<div class="form-group">
+						<label for="food-input">Food Allergies (optional) | 음식 알레르기가 있습니까?</label>
+						<input class="form-control" id="food-input" type="text" name="food">
+					</div>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col pb-3">
+					<div class="form-group">
+						<label for="saturday-input">Will You Be Attending Saturday Night's Picnic In The Park? | 토요일 행사에 참석할 예정입니까?</label>
+						  <select name="saturday" id="saturday-input">
+							<option disabled value="skipped" selected hidden></option>
+							<option value="yes">Yes | 네</option>
+							<option value="no">No | 아니요</option>
+						  </select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+                <div class="col text-center">
+					<button id="submit-btn" class="btn btn-primary btn-submit" type="submit">Send Response<br />확인</button>
+				</div>
+            </div>
 		</form>
         </div>
       </div>
     </div>
   </div>
-</div> -->
+</div>
 <div class="ww-footer bg-light">
   <div class="container text-center py-4">
     <p class="my-0">&copy; Wonderful Wedding. All rights reserved.</p>
@@ -456,6 +455,50 @@
     <script src="scripts/aos.js?ver=1.1.0"></script>
     <script src="scripts/ekko-lightbox.min.js?ver=1.1.0"></script>
     <script src="scripts/main.js?ver=1.1.0"></script>
+    <script type="text/javascript">
+        $('#wedding-form').on('submit', function (e) {
+        //optional validation code here
+        e.preventDefault();
+
+        var textArray = ['💃🕺 Get on your dancing shoes...',
+                         '🐶 Smokey is reviewing your response...',
+                         '🥂 Pouring the champagne...',
+                         '🪩 Preparing the dancefloor...',
+        ];
+        var randomNumber = Math.floor(Math.random()*textArray.length);
+
+        $("#submit-btn").text(textArray[randomNumber]);
+        $('#submit-btn').attr('disabled', true);
+
+        $.ajax({
+            url: "https://script.google.com/macros/s/AKfycbzV0HVoywcKQeGUjlx6kSJY-7be0vr-EnStd5tXA5-o_BzwLK-LiZiSEPAsUGLdKqljTg/exec",
+            method: "POST",
+            dataType: "json",
+            data: $("#wedding-form").serialize(),
+            success: function (response) {
+                console.log("response!");
+                console.log($("#wedding-form").serialize());
+                $("#submit-btn").text('Submitted!');
+
+                if (response.result == "success") {
+                    $('#wedding-form')[0].reset();
+                    alert('Thank you for letting us know! 답변 주셔서 감사합니다');
+                    return true;
+                } else {
+                    console.log("something weird in response");
+                    console.log(response);
+                    alert("Something went wrong and your response was not submitted successfully. Please message Casey or Jessica the details or try again later.");
+                }
+            },
+            error: function (error) {
+                $("#submit-btn").text('Send Response<br />확인');
+                $('#submit-btn').attr('disabled', false);
+                console.log("error in response");
+                alert("Something went wrong with the form. Please message Casey or Jessica the details or try again later.");
+            }
+        })
+    });
+    </script>
     <script type="text/javascript">
     const ical = document.getElementById("ical-link") ? document.getElementById("ical-link").href : null
     const linkElement = document.getElementById("ar-link");

@@ -14,19 +14,6 @@
     <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
     <link href="css/ekko-lightbox.css?ver=1.1.0" rel="stylesheet">
     <link href="css/main.css?ver=1.1.0" rel="stylesheet">
-    <script src="https://cdn.apple-mapkit.com/mk/5.x.x/mapkit.js"></script>
-    <style>
-        #map {
-            max-width: 580px;
-            min-height: 300px;
-            height: 100%;
-        }
-        #hotel-map {
-            max-width: 580px;
-            min-height: 300px;
-            height: 100%;
-        }
-    </style>
     <noscript>
       <style type="text/css">
         [data-aos] {
@@ -105,7 +92,7 @@
 						  </select>
 					</div>
 				</div>
-			</div>	
+			</div>
 			<div class="row">
 				<div class="col pb-3">
 					<div class="form-group">
@@ -113,7 +100,7 @@
 						<input class="form-control" id="food-input" type="text" name="food">
 					</div>
 				</div>
-			</div>			
+			</div>
 			<div class="row">
 				<div class="col pb-3">
 					<div class="form-group">
@@ -125,7 +112,7 @@
 						  </select>
 					</div>
 				</div>
-			</div>			
+			</div>
 			<div class="row">
                 <div class="col text-center">
 					<button id="submit-btn" class="btn btn-primary btn-submit" type="submit">Send Response<br />확인</button>
@@ -150,14 +137,14 @@
         $('#wedding-form').on('submit', function (e) {
         //optional validation code here
         e.preventDefault();
-			  
+
         var textArray = ['💃🕺 Get on your dancing shoes...',
                          '🐶 Smokey is reviewing your response...',
                          '🥂 Pouring the champagne...',
                          '🪩 Preparing the dancefloor...',
 				];
         var randomNumber = Math.floor(Math.random()*textArray.length);
-        
+
         $("#submit-btn").text(textArray[randomNumber]);
         $('#submit-btn').attr('disabled', true);
 
@@ -170,7 +157,7 @@
                 console.log("response!");
                 console.log($("#wedding-form").serialize());
                 $("#submit-btn").text('Submitted!');
-                
+
                 if (response.result == "success") {
                     $('#wedding-form')[0].reset();
                     alert('Thank you for letting us know! 답변 주셔서 감사합니다');
@@ -198,64 +185,6 @@
         window.location.href = ical;
       }
     }, false);
-    </script>
-    <script>
-
-    var MarkerAnnotation = mapkit.MarkerAnnotation,
-    clickAnnotation;
-
-    // Wedding Events
-    var paramourEstate = new mapkit.Coordinate(34.094775, -118.272117);
-    var paramourEstateRegion = new mapkit.CoordinateRegion(
-    new mapkit.Coordinate(34.094775, -118.272117),
-    new mapkit.CoordinateSpan(0.167647972, 0.354985255)
-    );
-
-    // AirPort
-    var lax = new mapkit.Coordinate(33.944007, -118.403811);
-    var burbank = new mapkit.Coordinate(34.196452, -118.354254);
-
-    // Hotels
-    var hotelA = new mapkit.Coordinate(34.095108, -118.372671);  // Best Western Plus Sunset Plaza
-    var hotelB = new mapkit.Coordinate(34.095360, -118.373265);  // Andaz West Hollywood
-    var hotelC = new mapkit.Coordinate(34.094280, -118.375634);  //1 Hotel
-
-    mapkit.init({
-    authorizationCallback: function(done) {
-      done("eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlM1QTdBWEw1RzgifQ.eyJpc3MiOiJYTjYzV0Q5NU44IiwiaWF0IjoxNjYwOTQ3NjE0LCJleHAiOjE2OTIzMTY4MDAsIm9yaWdpbiI6Imh0dHBzOi8vY2FzZXlhbmRqZXNzaWNhLmNvbSJ9.6L9nbkd2uTd0zj40wFbRIMxybS3JWrFO7bzqBn9C7oUYycFT-UFQ2a8Ncjz5h6kqO5l9vcc9MILBGPN9reUgew");
-    },
-      language: "en-US"
-    });
-    var hotelMap = new mapkit.Map("hotel-map");
-    var map = new mapkit.Map("map");
-    map.region = paramourEstateRegion;
-
-
-    // Setting properties on creation:
-    // Wedding Event
-    var paramourAnnotation = new MarkerAnnotation(paramourEstate, { color: "#f4a56d", title: "The Paramour Estate", glyphText: "💒" });
-
-    // Hotels + Event
-    var laxAnnotation = new MarkerAnnotation(lax, { color: "#00C4F9", title: "LAX", glyphText: "✈️" });
-    var burbankAnnotation = new MarkerAnnotation(burbank, { color: "#00C4F9", title: "BUR", glyphText: "✈️" });
-    var paramourAnnotationCopy = new MarkerAnnotation(paramourEstate, { color: "#f4a56d", title: "The Paramour Estate", glyphText: "💒" });
-    var hotelAnnotationA = new MarkerAnnotation(hotelA, { color: "#AA68FF", title: "Best Western", glyphText: "🏨"});
-    var hotelAnnotationB = new MarkerAnnotation(hotelB, { color: "#AA68FF", title: "Andaz", glyphText:  "🏨"});
-    var hotelAnnotationC = new MarkerAnnotation(hotelC, { color: "#AA68FF", title: "1 Hotel", glyphText: "🏨"});
-
-    // Setting properties after creation:
-    //         var workAnnotation = new MarkerAnnotation(work);
-    //         workAnnotation.color = "#969696";
-    //         workAnnotation.title = "Work";
-    //         workAnnotation.subtitle = "Apple Park";
-    //         workAnnotation.selected = "true";
-    //         workAnnotation.glyphText = "";
-
-    // Add and show both annotations on the map
-    map.showItems([paramourAnnotation]);
-
-    hotelMap.showItems([laxAnnotation, burbankAnnotation, hotelAnnotationA, hotelAnnotationB, hotelAnnotationC, paramourAnnotationCopy]);
-
     </script>
   </body>
 </html>
